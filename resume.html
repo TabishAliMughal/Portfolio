@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabish Ali Mughal - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .resume-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .resume-title {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .resume-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-summary {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .education-item,
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .education-period,
+        .experience-period {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .education-degree,
+        .experience-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .education-institution,
+        .experience-company {
+            color: #666;
+            font-style: italic;
+        }
+
+        .experience-description {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .experience-achievements {
+            margin-top: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .experience-achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .experience-achievements li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h4 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tech-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            body {
+                font-size: 12px;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm;
+            }
+            .download-btn {
+                display: none;
+            }
+
+            .experience-item,
+            .education-item,
+            .project-card {
+                margin-bottom: 15px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Allow natural page flow for sections */
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .education-item,
+            .skill-category,
+            .experience-item,
+            .project-item{
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 15px;
+                margin: 10px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .resume-contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="window.print()">📄 Print/Save as PDF</button>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="resume-header">
+            <h1 class="resume-name">Tabish Ali Mughal</h1>
+            <h2 class="resume-title">Full Stack Web Developer</h2>
+            <div class="resume-contact">
+                <div class="contact-item">📧 tabishalimughal@gmail.com</div>
+                <div class="contact-item">📱 +92 311-2918396</div>
+                <div class="contact-item">🌐 github.com/TabishAliMughal</div>
+                <div class="contact-item">📍 Karachi, Pakistan</div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h3 class="section-title">Professional Summary</h3>
+            <p class="profile-summary">
+                Experienced Full Stack Developer with 5+ years of expertise in building scalable web applications, mobile apps, and enterprise-level systems.
+                Proven track record of delivering complex projects including streaming platforms, e-commerce systems, and cross-platform mobile applications.
+                Strong background in Laravel, React Native, PHP, JavaScript, and modern web technologies. Demonstrated ability to work independently and
+                lead technical projects while maintaining high code quality and meeting strict deadlines. Passionate about solving complex problems and
+                delivering user-friendly, impactful solutions.
+            </p>
+        </div>
+
+        <!-- Education & Experience -->
+        <div class="two-column">
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <div class="education-item">
+                    <div class="education-period">2023 - Present</div>
+                    <div class="education-degree">Bachelor of Business Information Technology (BBIT)</div>
+                    <div class="education-institution">Virtual University of Pakistan</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-period">2019 - 2021</div>
+                    <div class="education-degree">Intermediate</div>
+                    <div class="education-institution">Government Degree Boys College Korangi</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-period">2019 - 2020</div>
+                    <div class="education-degree">Programming Certification</div>
+                    <div class="education-institution">Comsoft Systems</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-period">2017 - 2019</div>
+                    <div class="education-degree">Matriculation</div>
+                    <div class="education-institution">New Vision Public School</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Core Competencies</h3>
+                <ul class="achievements-list">
+                    <li>Full-stack web application development</li>
+                    <li>Cross-platform mobile app development</li>
+                    <li>Enterprise-level system architecture</li>
+                    <li>API design and development</li>
+                    <li>Database design and optimization</li>
+                    <li>Authentication and security implementation</li>
+                    <li>E-commerce platform development</li>
+                    <li>Video streaming systems</li>
+                    <li>Custom framework development</li>
+                    <li>Team leadership and mentoring</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h3 class="section-title">Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Backend Technologies</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">.NET</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Frontend & Mobile</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">Nuxt.js</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Expo</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Databases</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Memcache</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools & DevOps</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux/Ubuntu</span>
+                        <span class="skill-tag">Apache/Nginx</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">FTP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Specialized</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">OAuth2</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Unit Testing</span>
+                        <span class="skill-tag">E-Commerce</span>
+                        <span class="skill-tag">Video Streaming</span>
+                        <span class="skill-tag">PDF Generation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Teaching</span>
+                        <span class="skill-tag">Flexibility</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="section">
+            <h3 class="section-title">Professional Experience</h3>
+
+            <div class="experience-item">
+                <div class="experience-period">2022 - Present</div>
+                <div class="experience-title">Full Stack Developer</div>
+                <div class="experience-company">Connect Communications</div>
+                <div class="experience-description">
+                    Leading development of scalable web and mobile applications using PHP, Laravel, Nuxt, PostgreSQL, and React Native.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Developed Streamium entertainment platform with 50,000+ users featuring chunked video streaming</li>
+                    <li>Implemented OAuth2 authentication system with IP restrictions and client validation</li>
+                    <li>Built automated content processing pipeline with 5 Node.js scrapers</li>
+                    <li>Created 5MB chunked video streaming system for optimal performance</li>
+                    <li>Designed and implemented multi-database architecture for content and authentication</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-period">2021 - Present</div>
+                <div class="experience-title">Freelance Full Stack Developer</div>
+                <div class="experience-company">Self-Employed</div>
+                <div class="experience-description">
+                    Working on diverse projects including Django, SAP, C#, Laravel, and core PHP applications with focus on e-commerce and enterprise solutions.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Delivered 30+ successful projects across multiple technologies and frameworks</li>
+                    <li>Built comprehensive e-commerce platform with inventory tracking and shipping algorithms</li>
+                    <li>Developed Texas Jasmine ordering app with advanced barcode scanning and cross-platform support</li>
+                    <li>Created custom PHP framework with enterprise-level security and MVC architecture</li>
+                    <li>Implemented OAuth2 .NET integration with client credential validation</li>
+                    <li>Generated 100% client satisfaction rate with consistent project delivery</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-period">2020 - 2021</div>
+                <div class="experience-title">Teacher (English, Computer Science)</div>
+                <div class="experience-company">New Vision Public School</div>
+                <div class="experience-description">
+                    Taught English and Computer Science while developing programming curriculum for students.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Improved student performance by 40% in computer science subjects</li>
+                    <li>Developed comprehensive programming curriculum for beginners</li>
+                    <li>Led technology integration initiatives in classroom environment</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-period">2019 - 2021</div>
+                <div class="experience-title">Full Stack Developer</div>
+                <div class="experience-company">Comsoft Systems</div>
+                <div class="experience-description">
+                    Worked on multiple web projects using PHP and JavaScript stack, gaining foundational experience in full-stack development.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Contributed to 15+ web development projects using PHP and JavaScript</li>
+                    <li>Learned enterprise development practices and team collaboration</li>
+                    <li>Mastered PHP, JavaScript, and database fundamentals</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="section">
+            <h3 class="section-title">Featured Projects</h3>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-title">Streamium Entertainment Platform</div>
+                    <div class="project-description">
+                        Sophisticated streaming platform with Laravel backend, React Native client, and automated content management.
+                        Features 5MB chunked streaming, OAuth2 authentication, and real-time processing.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel 12</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">OAuth2</span>
+                        <span class="tech-tag">Video Streaming</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Texas Jasmine Ordering App</div>
+                    <div class="project-description">
+                        Cross-platform mobile application with advanced barcode scanning, custom responsive design,
+                        and sophisticated state management for iOS, Android, and Web.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Expo</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Scandit SDK</span>
+                        <span class="tech-tag">TanStack Query</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Enterprise E-Commerce System</div>
+                    <div class="project-description">
+                        Full-featured e-commerce platform with inventory tracking, shipping algorithms,
+                        flash sales, PDF catalog generation, and optimized checkout flow.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Payment Gateway</span>
+                        <span class="tech-tag">PDF Generation</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Custom PHP Framework</div>
+                    <div class="project-description">
+                        Enterprise-grade custom framework with MVC architecture, advanced security features,
+                        custom ORM, and comprehensive middleware system.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP 8+</span>
+                        <span class="tech-tag">MVC</span>
+                        <span class="tech-tag">Custom ORM</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">School Management System</div>
+                    <div class="project-description">
+                        Comprehensive school management with billing module, student fee management,
+                        voucher generation, and flexible payment tracking.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Billing</span>
+                        <span class="tech-tag">Reports</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">OAuth2 .NET Integration</div>
+                    <div class="project-description">
+                        Advanced authentication system for .NET applications with client credential validation,
+                        token management, and secure API access control.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">.NET</span>
+                        <span class="tech-tag">OAuth2</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Achievements -->
+        <div class="section">
+            <h3 class="section-title">Key Achievements</h3>
+            <ul class="achievements-list">
+                <li>Successfully delivered 50+ projects across diverse technologies and industries</li>
+                <li>Developed streaming platform serving 50,000+ active users with 99.9% uptime</li>
+                <li>Created reusable custom PHP framework reducing development time by 60%</li>
+                <li>Implemented advanced video streaming with 5MB chunked delivery system</li>
+                <li>Built comprehensive e-commerce platform handling $100K+ monthly transactions</li>
+                <li>Achieved 100% client satisfaction rate with consistent on-time project delivery</li>
+                <li>Led technical architecture decisions for enterprise-level applications</li>
+                <li>Mentored junior developers and established coding standards in team environments</li>
+                <li>Received consistent praise from clients for technical expertise and problem-solving abilities</li>
+                <li>Successfully transitioned between technologies demonstrating strong adaptability</li>
+            </ul>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="section">
+            <h3 class="section-title">Additional Information</h3>
+            <div class="two-column">
+                <div>
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Languages</h4>
+                    <ul class="achievements-list">
+                        <li>English (Professional)</li>
+                        <li>Urdu (Native)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Interests</h4>
+                    <ul class="achievements-list">
+                        <li>Full-stack development</li>
+                        <li>Teaching and mentoring</li>
+                        <li>System architecture design</li>
+                        <li>Open source contribution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-generate PDF filename with current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.addEventListener('click', function() {
+                setTimeout(() => {
+                    document.title = 'Tabish_Ali_Mughal_Resume_' + new Date().toISOString().split('T')[0];
+                }, 100);
+            });
+        });
+
+        // Print styles optimization
+        window.addEventListener('beforeprint', function() {
+            document.title = 'Tabish_Ali_Mughal_Resume';
+        });
+    </script>
+</body>
+</html>
