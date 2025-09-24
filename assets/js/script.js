@@ -128,7 +128,7 @@ if (contactForm) {
             };
 
             // Send to PHP backend
-            const response = await fetch('send-email.php', {
+            const response = await fetch('assets/scripts/send-email.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

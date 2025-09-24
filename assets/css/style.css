@@ -508,14 +508,14 @@ html {
     transition: transform 0.3s ease;
 }
 
-/* Special styling for transparent logos */
-.project-image img[src="streamium-logo.png"] {
+/* Special styling for transparent logos - only when logos are present */
+.project-image img[src*="streamium-logo"] {
     object-fit: contain;
     background: linear-gradient(135deg, #667eea, #764ba2);
     padding: 20px;
 }
 
-.project-image img[src="tj-app-logo.png"] {
+.project-image img[src*="tj-app-logo"] {
     object-fit: contain;
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     padding: 20px;
