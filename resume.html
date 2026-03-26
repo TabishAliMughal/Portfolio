@@ -263,7 +263,96 @@
             transform: translateY(-2px);
         }
 
+        /* Tab Navigation */
+        .top-action-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            border: 2px solid #667eea;
+            background: transparent;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .download-link {
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        .tab-content {
+            display: none;
+            padding-top: 70px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .download-btn {
+            position: static;
+            background: #667eea;
+            color: white;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-1px);
+        }
+
         @media print {
+            .top-action-bar {
+                display: none;
+            }
+            .tab-content {
+                padding-top: 0;
+            }
+            .tab-content.active {
+                display: block;
+            }
             @page {
                 size: A4;
                 margin: 15mm;
@@ -321,14 +410,52 @@
                 gap: 10px;
             }
             .skills-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+            }
+            .top-action-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 12px;
+            }
+            .tab-buttons {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            .tab-btn {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .action-buttons {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            .download-btn {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .tab-content {
+                padding-top: 140px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="download-btn" onclick="window.print()">📄 Print/Save as PDF</button>
+    <!-- Top Action Bar -->
+    <div class="top-action-bar">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchTab('resume')">Resume</button>
+            <button class="tab-btn" onclick="switchTab('cover-letter-1')">Cover Letter (General)</button>
+            <button class="tab-btn" onclick="switchTab('cover-letter-2')">Cover Letter (AI Focus)</button>
+        </div>
+        <div class="action-buttons">
+            <button class="download-btn" onclick="window.print()">📄 Print / Save as PDF</button>
+            <a href="Cover Letter.pdf" download class="download-btn download-link">📥 Download Cover Letter</a>
+            <a href="Cover Letter (AI).pdf" download class="download-btn download-link">📥 Download AI Cover Letter</a>
+        </div>
+    </div>
 
+    <!-- RESUME TAB -->
+    <div id="tab-resume" class="tab-content active">
     <div class="resume-container">
         <!-- Header -->
         <div class="resume-header">
@@ -669,21 +796,288 @@
             </div>
         </div>
     </div>
+    </div>
+
+    <!-- COVER LETTER 1: Senior Full-Stack Developer -->
+    <div id="tab-cover-letter-1" class="tab-content">
+    <div class="resume-container cover-letter-container">
+        <div class="resume-header">
+            <h1 class="resume-name">Tabish Ali Mughal</h1>
+            <h2 class="resume-title">Senior Full-Stack Software Developer</h2>
+            <div class="resume-contact">
+                <div class="contact-item">📧 tabishalimughal@gmail.com</div>
+                <div class="contact-item">📱 +92 311-2918396</div>
+                <div class="contact-item">📍 Karachi, Pakistan</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Application for Senior Full-Stack Software Developer Position</h3>
+            <p class="profile-summary">Dear Hiring Manager,</p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I am writing to apply for the Software Developer position. I am a highly motivated and results-driven
+                Full-Stack Developer with strong hands-on experience in designing, developing, and deploying
+                scalable web applications, backend systems, and API-driven platforms. I specialize in building clean,
+                efficient, secure, and maintainable software solutions that solve real-world business problems.
+            </p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Core Technical Skills</h3>
+            <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="skill-category">
+                    <h4>Backend</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Custom MVC</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">OAuth2</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Frontend</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Nuxt.js</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Databases</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Query Optimization</span>
+                        <span class="skill-tag">Indexing</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Architecture & DevOps</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">MVC</span>
+                        <span class="skill-tag">API-first</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Multi-tenant</span>
+                        <span class="skill-tag">VPS</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Integrations</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">QuickBooks API</span>
+                        <span class="skill-tag">WhatsApp (Baileys)</span>
+                        <span class="skill-tag">Facebook API</span>
+                        <span class="skill-tag">Instagram API</span>
+                        <span class="skill-tag">Messenger API</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Security & Auth</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">OAuth2 Flows</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Token Rotation</span>
+                        <span class="skill-tag">RBAC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Custom PHP Framework</h3>
+            <p class="profile-summary">
+                I have designed and developed my own lightweight MVC architecture framework using pure PHP, focusing heavily on:
+            </p>
+            <ul class="achievements-list" style="margin-top: 10px;">
+                <li>Performance optimization</li>
+                <li>Clean separation of concerns</li>
+                <li>Dynamic variable-driven routing and controllers</li>
+                <li>Flexible configuration handling</li>
+                <li>Lightweight ORM-style database abstraction</li>
+            </ul>
+            <p class="profile-summary" style="margin-top: 10px;">
+                This framework allows rapid development, cleaner code structure, and efficient runtime
+                performance, especially for complex business logic and API systems.
+            </p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Selected Projects</h3>
+            <div class="experience-item">
+                <div class="experience-title">Texas Jasmine — texasjasmine.com</div>
+                <div class="experience-description">
+                    A full-scale business website and backend system designed for performance, security, and scalability.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Custom backend architecture</li>
+                    <li>Secure authentication flows</li>
+                    <li>Optimized database queries</li>
+                    <li>Clean frontend integration</li>
+                    <li>Performance-focused implementation</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">World Deal Traders — worlddealtraders.com</div>
+                <div class="experience-description">
+                    A complete business platform including order processing, customer management, and accounting workflows.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Full-stack development</li>
+                    <li>Backend API design</li>
+                    <li>Secure authentication and user role management</li>
+                    <li>Accounting & system automation integration</li>
+                    <li>Performance and security optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Additional Project Experience</h3>
+            <ul class="achievements-list">
+                <li><strong>School Management System:</strong> Multi-tenant architecture, OAuth-based authentication, PostgreSQL backend, API-driven design</li>
+                <li><strong>WhatsApp Automation Platform:</strong> Message interception, automated replies, and workflow processing (Custom)</li>
+                <li><strong>Facebook, Messenger & Instagram Integration:</strong> Unified inbox system, API-based automation, token handling</li>
+                <li><strong>QuickBooks Integration:</strong> Orders, products, inventory sync, invoice management, and accounting automation</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Development Philosophy</h3>
+            <ul class="achievements-list">
+                <li>Clean and scalable architecture</li>
+                <li>Maintainable and reusable code</li>
+                <li>High security standards</li>
+                <li>Performance optimization</li>
+                <li>Long-term system stability</li>
+            </ul>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I am comfortable handling full project lifecycles independently — from planning and architecture to
+                deployment and optimization — and I also work very effectively in team-based environments.
+            </p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I am confident that my technical depth, architectural understanding, and problem-solving mindset
+                will allow me to contribute significant value to your organization. I would welcome the opportunity
+                to discuss how I can help build and scale your systems.
+            </p>
+        </div>
+
+        <div class="section" style="text-align: left; margin-top: 30px;">
+            <p class="profile-summary">Thank you for your time and consideration.</p>
+            <p class="profile-summary" style="margin-top: 20px;">
+                Best regards,<br>
+                <strong>Tabish Ali Mughal</strong><br>
+                Senior Full-Stack Software Developer<br>
+                Karachi, Pakistan
+            </p>
+        </div>
+    </div>
+    </div>
+
+    <!-- COVER LETTER 2: AI-Enhanced Development -->
+    <div id="tab-cover-letter-2" class="tab-content">
+    <div class="resume-container cover-letter-container">
+        <div class="resume-header">
+            <h1 class="resume-name">Tabish Ali Mughal</h1>
+            <h2 class="resume-title">Experienced Developer Leveraging AI for Efficient Engineering</h2>
+            <div class="resume-contact">
+                <div class="contact-item">📧 tabishalimughal@gmail.com</div>
+                <div class="contact-item">📱 +92 311-2918396</div>
+                <div class="contact-item">📍 Karachi, Pakistan</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Cover Letter</h3>
+            <p class="profile-summary">Dear Hiring Manager,</p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I am writing to express my interest in the position at your company. As a software developer
+                with strong experience in modern development stacks, I continuously focus on improving
+                both productivity and code quality — and one of the ways I achieve that is through the
+                efficient, responsible use of AI tools in my daily workflow.
+            </p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I actively use AI-powered development tools, including Claude Code (Pro subscription), as
+                productivity accelerators. I leverage AI to speed up repetitive tasks, explore alternative
+                implementations, generate boilerplate, and quickly analyze documentation or edge cases.
+                However, I do not rely on AI blindly. I treat it as a collaborative assistant — not a
+                replacement for engineering judgment. I rigorously review, test, refactor, and optimize any
+                AI-generated output to ensure it meets production standards, scalability requirements, and
+                security best practices.
+            </p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                AI tools, like any developer resource, can occasionally produce inaccuracies. My strength lies
+                in recognizing those gaps quickly. Because of my solid understanding of programming
+                fundamentals, system design, and debugging practices, I am able to validate outputs
+                efficiently and refine them into reliable, maintainable solutions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">This Balanced Approach Allows Me To</h3>
+            <ul class="achievements-list">
+                <li>Deliver features faster without compromising quality</li>
+                <li>Rapidly prototype and iterate</li>
+                <li>Reduce development time on routine tasks</li>
+                <li>Focus more deeply on architecture, optimization, and business logic</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <p class="profile-summary">
+                In today's evolving development landscape, I believe the most effective engineers are those
+                who know how to combine strong fundamentals with intelligent tool usage. I take pride in
+                being adaptable, efficient, and continuously learning — using AI to enhance performance
+                while maintaining full ownership of my code.
+            </p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                I would welcome the opportunity to bring this mindset and technical expertise to your team.
+            </p>
+            <p class="profile-summary" style="margin-top: 15px;">
+                Thank you for your time and consideration.
+            </p>
+        </div>
+
+        <div class="section" style="text-align: left; margin-top: 30px;">
+            <p class="profile-summary">
+                Sincerely,<br>
+                <strong>Tabish Ali Mughal</strong>
+            </p>
+        </div>
+    </div>
+    </div>
 
     <script>
-        // Auto-generate PDF filename with current date
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.querySelector('.download-btn');
-            downloadBtn.addEventListener('click', function() {
-                setTimeout(() => {
-                    document.title = 'Tabish_Ali_Mughal_Resume_' + new Date().toISOString().split('T')[0];
-                }, 100);
-            });
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Print styles optimization - set title based on active tab
+        window.addEventListener('beforeprint', function() {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab.id === 'tab-resume') {
+                document.title = 'Tabish_Ali_Mughal_Resume';
+            } else if (activeTab.id === 'tab-cover-letter-1') {
+                document.title = 'Tabish_Ali_Mughal_Cover_Letter';
+            } else {
+                document.title = 'Tabish_Ali_Mughal_Cover_Letter_AI';
+            }
         });
 
-        // Print styles optimization
-        window.addEventListener('beforeprint', function() {
-            document.title = 'Tabish_Ali_Mughal_Resume';
+        window.addEventListener('afterprint', function() {
+            document.title = 'Tabish Ali Mughal - Resume';
         });
     </script>
 </body>

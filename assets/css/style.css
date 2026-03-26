@@ -434,6 +434,97 @@ html {
 .skill-level[data-level="80"]::after { width: 80%; }
 .skill-level[data-level="75"]::after { width: 75%; }
 
+/* AI Usage Section */
+.ai-usage {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.ai-philosophy {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.ai-philosophy p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.ai-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.ai-benefit-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ai-benefit-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.ai-benefit-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.ai-benefit-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.ai-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ai-note > i {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.ai-note p {
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
 /* Projects Section */
 .projects {
     padding: 100px 0;
